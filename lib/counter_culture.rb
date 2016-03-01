@@ -351,7 +351,7 @@ module CounterCulture
     def previous_model
       prev = self.dup
 
-      self.changed_attributes.each_pair do |key, value|
+      self.send(:changed_attributes).each_pair do |key, value|
         prev.send("#{key}=".to_sym, value)
       end
 
